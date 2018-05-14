@@ -139,7 +139,7 @@ yield from
 
 yield from 是一个 Python3.3 之后新增的 [语法][2]，对于简单的生成器，`yield from iterable` 是这个 `for item in iterable: yield item` 的缩写。下面举一个简单的例子
 
-```python3
+```python
 import inspect
 
 def adder():

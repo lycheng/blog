@@ -138,7 +138,7 @@ END
 curl -i -XPOST 'http://localhost:8086/write?db=mydb' --data-binary 'm,a=1,b=2 c=3,d=4'
 ```
 
-InfluxDB 提供 HTTP 的 API，可以通过 POST 进行数据的更新，需要指定 db，schema 是没有限制的。你需要的是先创建相应的 db。
+InfluxDB 提供 HTTP 的 API，可以通过 POST 进行数据的更新，需要指定 database，schema 是没有限制的。你需要的是先创建相应的 database。
 
 ```
 curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE mydb"

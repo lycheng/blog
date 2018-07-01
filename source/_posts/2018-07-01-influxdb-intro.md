@@ -17,7 +17,16 @@ InfluxDB 是时间序列数据库的一种，TSDB 来自维基的定义
 
 > A time series database (TSDB) is a software system that is optimized for handling time series data, arrays of numbers indexed by time (a datetime or a datetime range).
 
-它适合用于保存大量的与时间相关的数据，例如温度变化，股票指数。
+它适合用于保存大量的与时间相关的数据，例如温度变化，股票指数，如
+
+```
+temperature,sensor=a,zone=city val=39.0 1422568543702900257
+temperature,sensor=b,zone=city val=39.1 1422568543702900258
+temperature,sensor=a,zone=city val=39.0 1422568543702900259
+temperature,sensor=b,zone=city val=38.9 1422568543702900260
+temperature,sensor=a,zone=city val=39.0 1422568543702900261
+temperature,sensor=b,zone=city val=39.0 1422568543702900262
+```
 
 目前常用于作为监控系统的数据源，与之类似的还有 [Prometheus](https://prometheus.io/)。
 
@@ -98,7 +107,7 @@ How
 
 上述的硬件推荐配置 4-6 核 CPU，8-32 GB 内存，磁盘性能在 500-1000 IOPS（作为参考，7200 转的机械硬盘的 IOPS 在 200 左右）。根据文档所说，InfluxDB 是设计在 SSD 上使用，他们 *没有* 在机械硬盘上进行过测试。
 
-集群的相关信息这里不做讨论。
+开源版的集群方案停留在 `0.11`，之后 InfluxDB 将集群作为企业版的特性，为其加入高可用的支持。
 
 ### Downsampling and data-retention
 

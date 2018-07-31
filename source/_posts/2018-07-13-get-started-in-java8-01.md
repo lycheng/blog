@@ -57,7 +57,7 @@ Basic-Syntax
  1. 一个源文件中只能有一个 public 类
  2. 一个源文件可以有多个非 public 类
  3. 源文件的名称应该和 public 类的类名保持一致。例如：源文件中 public 类的类名是 Employee，那么源文件应该命名为 Employee.java
- 4. 如果一个类定义在某个包中，那么 package 语句应该在源文件的首行
+ 4. 如果一个类定义在某个 package 中，那么 package 语句应该在源文件的首行
  5. 如果源文件包含 import 语句，那么应该放在 package 语句和类定义之间。如果没有 package 语句，那么 import 语句应该在源文件中最前面
  6. import 语句和 package 语句对源文件中定义的所有类都有效。在同一源文件中，不能给不同的类不同的包声明
 
@@ -131,7 +131,7 @@ class Cat extends Animal{
 
  - 在子类调用父类的 static 方法，也会影响到父类
  - static 的属性不依赖于任何的对象和子类，在内存中只会存在一份副本
- - static 语句类加载的时候执行，按顺序执行，并只执行一次
+ - static 语句在类加载的时候执行，按顺序执行，并只执行一次
 
 需要注意 Java 的类方法和属性在定义的时候可以设定访问权限，对应的关系如下
 
@@ -219,7 +219,7 @@ Project-Structure
 
 ### Package
 
-首先 Java 有个规则，一个 Java 文件中只能有一个类是 public 的，所以定义多个类的时候必须有多个文件。而多个文件的管理则必须通过 package 来管理。
+首先，一个 java 文件中只能有一个类是 public 的，所以定义多个类的时候必须有多个文件。而多个文件的管理则必须通过 package 来管理。
 
 package 在文件层面看就是同一个文件夹下的不同 java 文件，代码层面就是 . 分隔的模块。
 

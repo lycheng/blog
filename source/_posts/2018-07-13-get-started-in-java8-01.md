@@ -47,6 +47,19 @@ javac main.java
 java HelloWorldApp
 ```
 
+### Maven
+
+同样也是下载二进制包，可参考 [Maven 安装指南](https://maven.apache.org/install.html)
+
+设置相关环境变量
+
+```sh
+export MAVEN_HOME=$LOCALBIN/maven
+export PATH="$MAVEN_HOME/bin:$PATH"
+```
+
+Maven 的全局设置在 `path/to/maven/conf/settings.yml` 可修改其 `localRepository` 设置本地仓库的地址
+
 Basic-Syntax
 ---
 

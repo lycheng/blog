@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java8 学习记录 02
+title: Java 学习记录 02
 tags: [java, java8, lambda, generic, annotation]
 ---
 
@@ -8,7 +8,9 @@ tags: [java, java8, lambda, generic, annotation]
 
 背景：基本没有 Java 实战经验，有 Python 和 Golang 的经验
 
-前篇 [01](/2018/07/13/get-started-in-java8-01/)
+前篇
+
+ - 学习记录 [01](/2018/07/13/get-started-in-java-01/)
 
 Basic-Data-Type
 ---

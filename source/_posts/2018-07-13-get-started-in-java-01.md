@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java8 学习记录 01
+title: Java 学习记录 01
 tags: [java, java8]
 ---
 

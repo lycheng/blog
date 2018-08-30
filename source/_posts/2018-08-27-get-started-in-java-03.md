@@ -177,7 +177,13 @@ public class MsLunch {
 
 ### locks
 
-内在锁（intrinsic lock）和监视器锁（monitor lock）为 Java 的两种锁的形式。
+内在锁（intrinsic lock）或称为监视器锁（monitor lock），用于建立不同线程间调用时 happens-before 的关系。
+
+具体的定义为
+
+> Every object has an intrinsic lock associated with it. By convention, a thread that needs exclusive and consistent access to an object's fields has to acquire the object's intrinsic lock before accessing them, and then release the intrinsic lock when it's done with them. A thread is said to own the intrinsic lock between the time it has acquired the lock and released the lock. As long as a thread owns an intrinsic lock, no other thread can acquire the same lock. The other thread will block when it attempts to acquire the lock.
+
+> When a thread releases an intrinsic lock, a happens-before relationship is established between that action and any subsequent acquisition of the same lock.
 
 当一个线程执行 synchronized 相关方法时，则申请一个内在锁，等到退出（哪怕是未捕捉的异常退出）时释放锁，别的线程才可继续调用该对象的 synchronized 方法。synchronized 为可重入锁，即同一个线程内的可以直接调用其它 synchronized 修饰的方法。
 
@@ -223,6 +229,24 @@ Immutable Objects
  - 将类声明为 final 的，子类服务重写其方法，也可以通过将构造函数声明为 private，通过工厂方法创建对象
  - 只有一个字段是对象引用，并且被引用的对象也是不可变对象
 
+High Level Concurrency Objects
+---
+
+### Lock-Objects
+
+Lock 类比之前的 synchronized 提供更加细致的方法，如支持 wait / notify 方法，支持 tryLock 可以用于获取锁的超时控制。
+
+### Concurrent-Collections
+
+ - BlockingQueue - FIFO 如果队列满了 / 空了阻塞相应的请求
+ - ConcurrentMap - 对 KV 的操作加锁
+
+### Atomic-Variables
+
+如 `java.util.concurrent.atomic.AtomicInteger` 对其进行增减操作不需要进行额外的加锁，其内部进行锁的相关操作。
+
+相比 synchronized 修饰的代码，这边能更精确的控制临界区，减少不必要的同步操作。
+
 References
 ---
 
@@ -230,3 +254,4 @@ References
  2. [Why are Thread.stop, Thread.suspend and Thread.resume Deprecated?](https://docs.oracle.com/javase/7/docs/technotes/guides/concurrency/threadPrimitiveDeprecation.html)
  3. [Long and Double Values Are Not Atomic in Java](https://dzone.com/articles/longdouble-are-not-atomic-in-java)
  4. [死锁和活锁的区别](https://stackoverflow.com/questions/6155951/whats-the-difference-between-deadlock-and-livelock)
+ 5. [Lock Objects](https://docs.oracle.com/javase/tutorial/essential/concurrency/newlocks.html)

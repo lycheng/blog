@@ -4,7 +4,8 @@ title: Javascript 面向对象
 tags: [javascript]
 ---
 
-## 创建对象
+创建对象
+---
 
 以下是几种创建对象的方法
 
@@ -126,7 +127,8 @@ console.log(person2.skills); // [ "vim" ]
 
 这种是比较常用的方法，还有更多的动态原型模式，寄生构造函数模式就不一一赘述了。
 
-## 继承
+继承
+---
 
 ### 原型链
 
@@ -177,11 +179,14 @@ Student.prototype = Object.create(Person.prototype);
 
 `Object.create` 执行构造函数，但其实我们这里并不需要构造函数，我们仅仅需要的是它的原型部分。但这里两者起到的作用是一样的。
 
-## 个人一些不知道对不对的小想法
+个人想法
+---
 
 javascript 一些面向对象的实现看起来很诡异，感觉像是硬要为了实现面向对象而将这一套方法论套在基于原型的 javascript 里面。
 
-## 参考
+参考
+---
+
  1. [Javascript 高级程序设计](http://www.ituring.com.cn/book/946)
  2. [继承与原型链](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
  3. [javascript 面向对象介绍](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#JavaScript_Review)

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java 学习记录 01
-tags: [java, java8]
+tags: [java]
 ---
 
 环境：Java8, Idea 社区版，ubuntu 18.04 LTS
@@ -281,7 +281,7 @@ public class Main {
 }
 ```
 
-上述的代码也可以添加 import 语句来简化代码
+上述的代码也可以添加 `import` 语句来简化代码
 
 ```java
 import core.Transportation;

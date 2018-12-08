@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java 学习记录 02
-tags: [java, java8, lambda, generic, annotation]
+tags: [java, lambda, generic, annotation]
 ---
 
 环境：Java8, Idea 社区版，ubuntu 18.04 LTS
@@ -27,6 +27,27 @@ Basic-Data-Type
  - char (16)
 
 需要注意的是，局部变量声明后需要进行初始化，否则将报错。但作为类的成员则有默认值，如 int 不初始化则默认为 0。
+
+### Encoding
+
+我在本机环境下进行测试时，JVM 默认的编码为 UTF-8。如果对编码比较敏感，可以通过设置环境变量修改编码，这里有个有趣的例子
+
+```java
+public static void main(String[] args) throws IOException {
+    SecureRandom random = new SecureRandom();
+    byte[] src = new byte[16];
+    random.nextBytes(src);
+
+    System.out.println(src.length);
+
+    String dst = new String(src);
+    System.out.println(dst.length());
+    System.out.println(dst.getBytes().length);
+    System.out.println(dst.getBytes(StandardCharsets.UTF_16).length);
+}
+```
+
+上述的结果除了第一个是明确的 16 以外其它都是不明确的，对于一个 byte，UTF-8 可能会以 2 个 byte 编码，所以上述代码的 dst 则是不确定长度的。但一般来说这种场景比较少见，在实际写代码的过程中，我们使用的是编码过后的文件或者输入，而不是直接处理 unicode。
 
 Array
 ---
@@ -565,3 +586,4 @@ References
  4. [Annotation 详解](http://wingjay.com/2017/05/03/Java-%E6%8A%80%E6%9C%AF%E4%B9%8B%E6%B3%A8%E8%A7%A3-Annotation/)
  5. [Java 泛型和类型擦除](http://www.importnew.com/13907.html)
  6. [Java 类型擦除](http://www.angelikalanger.com/GenericsFAQ/FAQSections/TechnicalDetails.html#FAQ101)
+ 7. [Java Encoding 解析](https://javarevisited.blogspot.com/2012/01/get-set-default-character-encoding.html)

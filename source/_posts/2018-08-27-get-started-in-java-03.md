@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java 学习记录 03
-tags: [java, java8, thread, concurrency]
+tags: [java, thread, concurrency]
 ---
 
 环境：Java8, Idea 社区版，ubuntu 18.04 LTS

@@ -16,11 +16,13 @@ dict             229511 +180160
 
 ```
 
-上述输出是 `objgraph.show_growth()` 的输出，该函数会输出类实例的增量的变化。上述输出可以看到三个类型实例变量的增量是同步的，而这三个实例又是 SQLAlchemy 库的类型，于是怀疑是数据库的问题。
+上述输出是 `objgraph.show_growth()` 的输出，该函数会输出类实例的增量的变化。上述输出可以看到三个类型实例变量的增量是同步的，而前两个类型又是 SQLAlchemy 库的类型，于是怀疑是数据库的问题。
 
 后来追查下去，发现变化在于传入了一个千万级别的 ID 数组，使用该数组作为子查询来查询。
 
 除此以外其实还有像 `objgraph.get_leaking_objects()` 这样打印出没有被引用的对象（按其 [文档说明][2] 有 bug）以及通过图来表示对象的引用关系，用来 debug 真是再合适不过了。
+
+由于当时 debug 的环境是 Python 2.6 的，现在 Python 3 有内置的库，如 [tracemalloc](https://docs.python.org/3/library/tracemalloc.html)，该库在 Python 3.4 开始引入，初步看了下，tracemalloc 可以提供比 gc 库更底层的功能。
 
 One-More-Thing
 ---
